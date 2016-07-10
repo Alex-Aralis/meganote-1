@@ -1,0 +1,17 @@
+<div class="page-header">
+    <h1>Profile</h1>
+</div>
+
+<ul class="nav nav-tabs">
+    <li 
+        ng-repeat="tab in vm.tabs"  
+        role="pesentation" 
+        ng-class="tab.active"
+        ui-sref="{{tab.state}}"
+        ng-click="vm.tabClicked(tab)"
+    >
+        <a>Info</a>
+    </li>
+</ul>
+
+<ui-view></ui-view>
