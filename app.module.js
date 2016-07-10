@@ -6,7 +6,9 @@
     'meganote.notes',
     'meganote.notesForm',
     'meganote.signUp',
-    'meganote.users'
+    'meganote.users',
+    'meganote.navbar',
+    'meganote.home',
   ])
     .config(config);
 

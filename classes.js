@@ -4,7 +4,7 @@
             class Cacher {
                 constructor(_key){
                     this._key = _key;
-                    this.reset();
+                    this._data = null;
                 }
 
                 set data(data){
@@ -15,7 +15,8 @@
 
                 get data(){
                     this._data === null && 
-                        (this._data = $window.localStorage.getItem(this._key).data);
+                        ($window.localStorage.getItem(this._key) !== null) &&
+                        (this._data = JSON.parse($window.localStorage.getItem(this._key)).data);
 
                     return this._data;
                 }
