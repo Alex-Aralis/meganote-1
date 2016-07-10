@@ -9,6 +9,7 @@
     'meganote.users',
     'meganote.navbar',
     'meganote.home',
+    'meganote.profile',
   ])
     .config(config);
 

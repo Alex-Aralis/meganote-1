@@ -1,0 +1,24 @@
+
+<div class="container"><div class="row"><div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+<h2>Edit Profile</h2>
+<p>{{vm.user}}</p>
+
+
+<form class="container">
+        <div class="input-group col-xs-12">
+            <label class="col-xs-12"> Name 
+                <input ng-model="vm.name" class="form-control" type="text" placeholder="Name">
+            </label>
+        </div>
+
+        <div class="input-group col-xs-12">
+    <label class="col-xs-12"> User Name 
+            <input ng-model="vm.username" class="form-control" type="text" placeholder="User Name">
+    </label>
+        </div>
+
+    <div class="input-group">
+        <input ng-click="vm.updateUser()" type="submit" class="btn" value="Save">
+    </div>
+</form>
+</div></div></div>
