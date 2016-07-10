@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep -r --exclude-dir=content --exclude-dir=bower_components $1
