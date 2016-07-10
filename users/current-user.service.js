@@ -1,21 +1,19 @@
 {
   angular.module('meganote.users')
-    .service('CurrentUser', ['$window', $window => {
+    .service('CurrentUser', ['Cacher', Cacher => {
 
       class CurrentUser {
         constructor() {
-          this.user = JSON.parse($window.localStorage.getItem('currentUser'));
+          this.userCacher = new Cacher('user');
         }
-        set(user) {
-          this.user = user;
-          $window.localStorage.setItem('currentUser', JSON.stringify(this.user));
+        set user(user) {
+          this.userCacher.data = user;
         }
-        get() {
-          return this.user || {};
+        get user() {
+          return this.userCacher.data;
         }
         clear() {
-          this.user = undefined;
-          $window.localStorage.removeItem('currentUser');
+          this.userCacher.reset();
         }
       }
       return new CurrentUser();

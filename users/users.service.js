@@ -18,9 +18,14 @@
             })
               .then(
                 res => {
-                  AuthToken.set(res.data.authToken);
-                  CurrentUser.set(res.data.user);
+                  AuthToken.token = res.data.authToken;
+                  CurrentUser.user = res.data.user;
                 }
+              )
+              .catch(
+                err => {
+                  console.log(err);
+                }   
               );
           }
 

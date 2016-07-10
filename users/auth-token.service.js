@@ -1,21 +1,19 @@
 {
   angular.module('meganote.users')
-    .service('AuthToken', ['$window', $window => {
+    .service('AuthToken', ['Cacher', Cacher => {
 
       class AuthToken {
         constructor() {
-          this.token = $window.localStorage.getItem('authToken');
+          this.tokenCacher = new Cacher('authToken');
         }
-        set(token) {
-          this.token = token;
-          $window.localStorage.setItem('authToken', this.token);
+        set token(token) {
+          this.tokenCacher.data = token;
         }
-        get() {
-          return this.token;
+        get token() {
+          return this.tokenCacher.data;
         }
         clear() {
-          this.token = undefined;
-          $window.localStorage.removeItem('authToken');
+          this.tokenCacher.reset();
         }
       }
       return new AuthToken();
