@@ -13,7 +13,7 @@
                 }
 
                 signIn(){
-                    $http.post(`${API_BASE}users/sign-in`, {
+                    $http.post(`${API_BASE}sessions`, {
                         user: this.user,
                     })
                     .then(res => {

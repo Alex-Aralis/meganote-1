@@ -2,36 +2,22 @@
     angular.module('meganote.profile')
         .controller('ProfileEditController', [ 
 
-        '$http', 'CurrentUser', 'AuthToken', 'API_BASE',
-        ($http, CurrentUser, AuthToken, API_BASE) => {
+        '$http', 'CurrentUser', 'UsersService', 'AuthToken', 'API_BASE',
+        ($http, CurrentUser, UsersService, AuthToken, API_BASE) => {
             
             class ProfileEditController{
                 constructor(){
-
+                    this.user = {
+                        name: CurrentUser.user.name,
+                        username: CurrentUser.user.username,
+                    };
                 }
                 
                 updateUser(){
-                    $http({
-                        method: 'PATCH',
-                        url: `${API_BASE}users`,
-                        data: {
-                            token: AuthToken.token,
-                            newUser: {
-                                name: this.name,
-                                username: this.username,
-                            },
-                        },
-                    })
-                    .then(res => {
-                        CurrentUser.user = res.data.user;
-                    })
+                    UsersService.updateUser(this.user)
                     .catch(err => {
                         console.log(err);
                     });
-                }
-                
-                get user(){
-                    return CurrentUser.user;
                 }
             }
 
