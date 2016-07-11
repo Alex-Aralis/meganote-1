@@ -10,6 +10,7 @@
     'meganote.navbar',
     'meganote.home',
     'meganote.profile',
+    'meganote.signIn',
   ])
     .config(config);
 
