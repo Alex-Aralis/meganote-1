@@ -2,8 +2,8 @@
     angular.module('meganote.navbar')
         .directive('aaNavbar', [
 
-        'CurrentUser', '$state',
-        (CurrentUser, $state) => {
+        'AuthToken', 'CurrentUser', '$state',
+        (AuthToken, CurrentUser) => {
             class NavbarController {
                 constructor() {
                     
@@ -15,7 +15,7 @@
 
                 signOut(){
                     CurrentUser.clear();
-                    $state.go('home');
+                    AuthToken.clear();
                 }
             }
 

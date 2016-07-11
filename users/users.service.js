@@ -7,7 +7,7 @@
       'CurrentUser',
       ($http, API_BASE, AuthToken, CurrentUser) => {
 
-        const apiURI = `${API_BASE}users/`;
+        const apiURI = `${API_BASE}users`;
 
         class UsersService {
 
@@ -27,6 +27,20 @@
                   console.log(err);
                 }   
               );
+          }
+
+          updateUser(user){
+              return $http({
+                  method: 'PATCH',
+                  url: apiURI,
+                  data: {
+                      token: AuthToken.token,
+                      newUser: user,
+                  },
+              })
+              .then(res => {
+                  CurrentUser.user = res.data.user;
+              });
           }
 
         }
