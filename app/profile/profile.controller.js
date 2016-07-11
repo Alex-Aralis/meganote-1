@@ -5,10 +5,12 @@
                 {
                     active: 'active',
                     state: 'profile.info',
+                    innerText: 'Info',
                 },
                 {
                     active: '',
                     state: 'profile.edit',
+                    innerText: 'Edit',
                 },
             ];
         }    
