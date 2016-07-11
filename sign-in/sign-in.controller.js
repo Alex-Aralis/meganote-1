@@ -2,8 +2,20 @@
     angular.module('meganote.signIn')
         .controller('SignInController', [
             
-            '$state', '$http', 'API_BASE', 'CurrentUser', 'AuthToken', 
-            ($state, $http, API_BASE, CurrentUser, AuthToken) => {
+            '$state', 
+            '$http', 
+            'API_BASE', 
+            'CurrentUser', 
+            'AuthToken', 
+            'Flash', 
+            'UsersService',
+            ($state, 
+             $http, 
+             API_BASE, 
+             CurrentUser, 
+             AuthToken, 
+             Flash,
+             UsersService) => {
             class SignInController {
                 constructor(){
                     this.user = {
@@ -13,13 +25,11 @@
                 }
 
                 signIn(){
-                    $http.post(`${API_BASE}sessions`, {
-                        user: this.user,
-                    })
-                    .then(res => {
-                        CurrentUser.user = res.data.user;
-                        AuthToken.token = res.data.authToken;
+                    UsersService.signIn(this.user).then(res => {
                         $state.go('profile.info');
+                    })
+                    .catch(err => {
+                        Flash.create('danger', err.statusText, 3000);
                     });
                 }
             }

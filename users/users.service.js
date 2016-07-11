@@ -7,13 +7,14 @@
       'CurrentUser',
       ($http, API_BASE, AuthToken, CurrentUser) => {
 
-        const apiURI = `${API_BASE}users`;
+        const apiUserURI = `${API_BASE}users`;
+        const apiSessionURI = `${API_BASE}sessions`;
 
         class UsersService {
 
           // Sign Up
           create(user) {
-            return $http.post(apiURI, {
+            return $http.post(apiUserURI, {
               user,
             })
               .then(
@@ -32,17 +33,26 @@
           updateUser(user){
               return $http({
                   method: 'PATCH',
-                  url: apiURI,
+                  url: apiUserURI,
                   data: {
                       token: AuthToken.token,
                       newUser: user,
                   },
               })
               .then(res => {
+                  console.log(res);
                   CurrentUser.user = res.data.user;
               });
           }
 
+          signIn(user){
+            console.log(user);
+            return $http.post(apiSessionURI, {user})
+                .then(res => {
+                    CurrentUser.user = res.data.user;
+                    AuthToken.token = res.data.authToken;
+                });
+          }
         }
         return new UsersService();
 
