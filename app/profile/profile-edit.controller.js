@@ -11,9 +11,6 @@
                 }
                 
                 updateUser(){
-                    console.log(this.username);
-                    console.log(this.name);
-
                     $http({
                         method: 'PATCH',
                         url: `${API_BASE}users`,
