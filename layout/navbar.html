@@ -28,8 +28,8 @@
             <li><a>One more separated link</a></li>
           </ul>
         </li>
-        <li ng-show="vm.user"><a ui-sref="profile" ng-bind="vm.user.name"></a></li>
-        <li ng-show="vm.user"><a ng-click="vm.signOut()">sign out</a></li>
+        <li ng-show="vm.user"><a ui-sref="profile.info" ng-bind="vm.user.name"></a></li>
+        <li ng-show="vm.user"><a ui-sref="home" ng-click="vm.signOut()">sign out</a></li>
         <li ng-show="!vm.user"><a ui-sref="sign-up">Sign up</a></li>
         <li ng-show="!vm.user"><a ui-sref="sign-in">Sign in</a></li>
       </ul>

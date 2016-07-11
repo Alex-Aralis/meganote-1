@@ -1,3 +1,5 @@
+
+<div class="row"><div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 <div class="page-header">
     <h1>Profile</h1>
 </div>
@@ -7,11 +9,14 @@
         ng-repeat="tab in vm.tabs"  
         role="pesentation" 
         ng-class="tab.active"
-        ui-sref="{{tab.state}}"
         ng-click="vm.tabClicked(tab)"
     >
-        <a>Info</a>
+        <a
+            ui-sref="{{tab.state}}"
+            ng-bind="tab.innerText"
+        ></a>
     </li>
 </ul>
 
 <ui-view></ui-view>
+</div></div>
