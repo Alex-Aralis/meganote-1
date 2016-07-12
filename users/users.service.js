@@ -14,20 +14,13 @@
 
           // Sign Up
           create(user) {
-            return $http.post(apiUserURI, {
-              user,
-            })
-              .then(
-                res => {
+              return $http.post(apiUserURI, {
+                user,
+              })
+              .then(res => {
                   AuthToken.token = res.data.authToken;
                   CurrentUser.user = res.data.user;
-                }
-              )
-              .catch(
-                err => {
-                  console.log(err);
-                }   
-              );
+              });
           }
 
           updateUser(user){

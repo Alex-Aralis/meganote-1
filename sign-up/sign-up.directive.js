@@ -13,7 +13,7 @@
             UsersService.create(this.user)
                 .catch(err => {
                     console.log(err);
-                    Flash.create('danger', err, 3000);
+                    Flash.create('danger', err.statusText, 3000);
                 });
           }
         }
