@@ -2,8 +2,8 @@
   angular.module('meganote.signUp')
     .directive('signUp', [
 
-      'UsersService', 'Flash',
-      (UsersService, Flash) => {
+      '$state', 'UsersService', 'Flash',
+      ($state, UsersService, Flash) => {
 
         class SignUpController {
           constructor() {
@@ -11,9 +11,12 @@
           }
           submit() {
             UsersService.create(this.user)
+                .then(() => {
+                    $state.go('notes');
+                })
                 .catch(err => {
                     console.log(err);
-                    Flash.create('danger', err.statusText, 3000);
+                    Flash.create('danger', err.data.message, 3000);
                 });
           }
         }
