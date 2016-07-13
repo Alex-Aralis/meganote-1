@@ -93,7 +93,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 'use strict';
 
 {
-    angular.module('meganote').constant('API_BASE', 'http://localhost:3030/api/v1/');
+    angular.module('meganote').constant('API_BASE', 'https://alex-aralis-meganote-server.herokuapp.com:3030/api/v1/');
 }
 'use strict';
 
