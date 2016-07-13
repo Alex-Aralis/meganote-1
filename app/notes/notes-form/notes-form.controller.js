@@ -32,7 +32,7 @@
           .then(
             res => {
               vm.note = res.data.note;
-              Flash.create('success', res.data.message);
+              Flash.create('success', res.data.note.message);
               $state.go('notes.form', { noteId: vm.note._id });
             },
             () => Flash.create('danger', 'Oops! Something went wrong.')

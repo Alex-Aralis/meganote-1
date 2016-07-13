@@ -8,4 +8,4 @@ Thumbs.db
 .idea
 bundle.js
 bundle.js.map
-
+*.log

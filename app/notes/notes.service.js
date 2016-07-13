@@ -35,7 +35,9 @@
       });
 
       notesPromise
-        .then(res => service.notes.unshift(res.data.note));
+        .then(res => {
+            service.notes.unshift(res.data.note);
+        });
 
       return notesPromise;
     }
@@ -58,7 +60,9 @@
       const notesPromise = $http.delete(`${apiURI}${note._id}`);
 
       notesPromise
-        .then(res => service.removeById(res.data.note._id));
+        .then(res => {
+            service.removeById(res.data.note._id);
+        });
 
       return notesPromise;
     }

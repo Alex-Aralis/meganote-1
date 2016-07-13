@@ -9,8 +9,10 @@
             request(config){
                 const token = AuthToken.token;
                 
-                if(token && config.url.includes(API_BASE))
-                    config.headers.Autherization = token;
+                if(token && config.url.includes(API_BASE)){
+                    config.headers.Authorization = token;
+                    
+                }
 
                 return config;
             },
