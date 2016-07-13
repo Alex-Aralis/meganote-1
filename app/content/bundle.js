@@ -562,7 +562,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       controller: SignUpController,
       controllerAs: 'vm',
       bindToController: true,
-      templateUrl: '/sign-up/sign-up.html'
+      templateUrl: 'sign-up/sign-up.html'
     };
   }]);
 }
